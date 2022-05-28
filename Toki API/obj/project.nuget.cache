@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "ZKGBAFdmws1nOw3WV6ZXk3MiOAOI0mG2QV2Ysd/s84ANlvFsGs/REZTzRXB9ClqkQPa062ZIYVdtM3PxzPfSew==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\lagro\\code\\AP2\\Toki API\\Toki API\\Toki API.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\lagro\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\lagro\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\lagro\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "C:\\Users\\lagro\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "C:\\Users\\lagro\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "C:\\Users\\lagro\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}
