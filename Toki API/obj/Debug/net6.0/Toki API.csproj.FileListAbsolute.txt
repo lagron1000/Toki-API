@@ -1,0 +1,27 @@
+C:\Users\lagro\code\AP2\Toki API\Toki API\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\lagro\code\AP2\Toki API\Toki API\bin\Debug\net6.0\appsettings.json
+C:\Users\lagro\code\AP2\Toki API\Toki API\bin\Debug\net6.0\Toki API.exe
+C:\Users\lagro\code\AP2\Toki API\Toki API\bin\Debug\net6.0\Toki API.deps.json
+C:\Users\lagro\code\AP2\Toki API\Toki API\bin\Debug\net6.0\Toki API.runtimeconfig.json
+C:\Users\lagro\code\AP2\Toki API\Toki API\bin\Debug\net6.0\Toki API.dll
+C:\Users\lagro\code\AP2\Toki API\Toki API\bin\Debug\net6.0\Toki API.pdb
+C:\Users\lagro\code\AP2\Toki API\Toki API\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\lagro\code\AP2\Toki API\Toki API\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\lagro\code\AP2\Toki API\Toki API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\lagro\code\AP2\Toki API\Toki API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\lagro\code\AP2\Toki API\Toki API\obj\Debug\net6.0\Toki API.csproj.AssemblyReference.cache
+C:\Users\lagro\code\AP2\Toki API\Toki API\obj\Debug\net6.0\Toki API.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lagro\code\AP2\Toki API\Toki API\obj\Debug\net6.0\Toki API.AssemblyInfoInputs.cache
+C:\Users\lagro\code\AP2\Toki API\Toki API\obj\Debug\net6.0\Toki API.AssemblyInfo.cs
+C:\Users\lagro\code\AP2\Toki API\Toki API\obj\Debug\net6.0\Toki API.csproj.CoreCompileInputs.cache
+C:\Users\lagro\code\AP2\Toki API\Toki API\obj\Debug\net6.0\Toki API.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\lagro\code\AP2\Toki API\Toki API\obj\Debug\net6.0\Toki API.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\lagro\code\AP2\Toki API\Toki API\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\lagro\code\AP2\Toki API\Toki API\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\lagro\code\AP2\Toki API\Toki API\obj\Debug\net6.0\scopedcss\bundle\Toki API.styles.css
+C:\Users\lagro\code\AP2\Toki API\Toki API\obj\Debug\net6.0\Toki API.csproj.CopyComplete
+C:\Users\lagro\code\AP2\Toki API\Toki API\obj\Debug\net6.0\Toki API.dll
+C:\Users\lagro\code\AP2\Toki API\Toki API\obj\Debug\net6.0\refint\Toki API.dll
+C:\Users\lagro\code\AP2\Toki API\Toki API\obj\Debug\net6.0\Toki API.pdb
+C:\Users\lagro\code\AP2\Toki API\Toki API\obj\Debug\net6.0\Toki API.genruntimeconfig.cache
+C:\Users\lagro\code\AP2\Toki API\Toki API\obj\Debug\net6.0\ref\Toki API.dll
