@@ -12,7 +12,7 @@ namespace Toki_API.Controllers
     [Route("api/[controller]")]
     public class ContactsController : Controller
     {
-        private readonly UserService uService = new UserService();
+        private readonly IUserService uService = new DbUserService();
         //private readonly ChatService cService = new ChatService();
 
 
@@ -48,11 +48,23 @@ namespace Toki_API.Controllers
         {
             string signedInId = signedId;
             ICollection<Contact>? hisContacts = uService.getContactsById(signedInId);
+            User? u = uService.GetById(signedInId);
             //User? conUser = uService.GetById(c.Id);
             //if (conUser == null) return NotFound(ConstService.NO_USR);
             if (uService.GetContactById(signedId, c.Id) != null) return BadRequest("Contact already added");
-            Contact con = new Contact(c.Id, c.Name, c.Server, signedId);
-            if (hisContacts != null) hisContacts.Add(con);
+            Contact newC = new Contact();
+            newC.Id = c.Id;
+            newC.ContactHolderId = signedInId;
+            //newC.ContactHolder = u;
+            newC.Name = c.Name;
+            newC.Server = c.Server;
+            try
+            {
+                uService.newContact(signedInId, newC);
+            } catch (Exception e)
+            {
+                return BadRequest(e);
+            }
             return Ok();
 
         }
@@ -74,7 +86,7 @@ namespace Toki_API.Controllers
         {
             string signedInId = signedId;
             Contact? x = uService.GetContactById(signedInId, id);
-            List<Contact>? contacts = uService.getContactsById(signedInId);
+            ICollection<Contact>? contacts = uService.getContactsById(signedInId);
             if (contacts == null || x == null) return;
             contacts.Remove(x);
         }
@@ -95,13 +107,20 @@ namespace Toki_API.Controllers
             Contact? rec = uService.GetContactById(signedInId, recId);
             if (rec == null) return;
             int newId = 0;
-            if (rec.Messages.Count != 0) newId = rec.Messages.Max(u => u.Id) + 1;
+            if (rec.Messages.Count != 0) newId = (rec.Messages
+                    .Max(u => u.Id) + 1);
             DateTime now = DateTime.Now;
-            Message newMsg = new Message(newId, m.content, now, true, signedInId);
-            rec.Messages.Add(newMsg);
-            rec.last = newMsg.Content;
-            rec.lastdate = newMsg.Created;
-            rec.lastmsg = newMsg;
+            Message newMsg = new Message();
+            //(int id, string content, DateTime created, bool sent, string sentBy)
+            //newMsg.Id = newId;
+            newMsg.Content = m.content;
+            newMsg.Created = now;
+            newMsg.Sent = true;
+            newMsg.SentBy = signedInId;
+            newMsg.ChatId = recId;
+            uService.newMessage(rec, newMsg);
+
+
         }
 
         [HttpGet("{recId}/messages/{msgId}")]
@@ -111,7 +130,7 @@ namespace Toki_API.Controllers
             Contact? rec = uService.GetContactById(signedInId, recId);
             if (rec == null) return NotFound(ConstService.NO_USR);
             if (rec.Messages.Count == 0) return NotFound(ConstService.NO_MSG);
-            Message? msg = rec.Messages.Find(msg => msg.Id == msgId);
+            Message? msg = rec.Messages.ToList().Find(msg => msg.Id == msgId);
             if (msg == null) return NotFound(ConstService.NO_MSG);
             return Ok(msg);
         }
@@ -124,7 +143,7 @@ namespace Toki_API.Controllers
             Contact? rec = uService.GetContactById(signedInId, recId);
             if (rec == null) return;
             if (rec.Messages.Count == 0) return;
-            Message? msg = rec.Messages.Find(msg => msg.Id == msgId);
+            Message? msg = rec.Messages.ToList().Find(msg => msg.Id == msgId);
             if (msg == null) return;
             msg.Content = m.content;
         }
@@ -136,7 +155,7 @@ namespace Toki_API.Controllers
             Contact? rec = uService.GetContactById(signedInId, recId);
             if (rec == null) return;
             if (rec.Messages.Count == 0) return;
-            Message? msg = rec.Messages.Find(msg => msg.Id == msgId);
+            Message? msg = rec.Messages.ToList().Find(msg => msg.Id == msgId);
             if (msg == null) return;
             rec.Messages.Remove(msg);
         }

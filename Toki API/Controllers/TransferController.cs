@@ -10,7 +10,7 @@ namespace Toki_API.Controllers
     [ApiController]
     public class TransferController : ControllerBase
     {
-        private readonly UserService uService = new UserService();
+        private readonly IUserService uService = new DbUserService();
 
         // GET: api/<TransferController>
         [HttpGet]
@@ -33,13 +33,21 @@ namespace Toki_API.Controllers
             Contact? reciever = uService.GetContactById(m.to, m.from);
             if (reciever == null) return;
             int newId = 0;
-            if (reciever.Messages.Count != 0) newId = reciever.Messages.Max(u => u.Id) + 1;
+            if (reciever.Messages.Count != 0) newId = (reciever.Messages
+                    .Max(u => u.Id) + 1);
             DateTime now = DateTime.Now;
-            Message newMsg = new Message(newId, m.content, now, false, m.from);
-            reciever.Messages.Add(newMsg);
-            reciever.last = m.content;
-            reciever.lastdate = now;
-            reciever.lastmsg = newMsg;
+            Message newMsg = new Message();
+            //newMsg.Id = newId;
+            newMsg.Content = m.content;
+            newMsg.Created = now;
+            newMsg.Sent = false;
+            newMsg.SentBy = m.from;
+            newMsg.ChatId = m.from;
+            uService.newMessage(reciever, newMsg);
+            //reciever.Messages.Add(newMsg);
+            //reciever.last = m.content;
+            //reciever.lastdate = now;
+            //reciever.lastmsg = newMsg;
         }
 
         // PUT api/<TransferController>/5

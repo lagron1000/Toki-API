@@ -10,7 +10,7 @@ namespace Toki_API.Controllers
     [ApiController]
     public class InvitationsController : ControllerBase
     {
-        private readonly UserService uService = new UserService();
+        private readonly IUserService uService = new DbUserService();
 
         // GET: api/<InvitationsController>
         [HttpGet]
@@ -35,7 +35,15 @@ namespace Toki_API.Controllers
         {
             User? toUser = uService.GetById(inv.to);
             if (toUser == null) return NotFound(ConstService.NO_USR);
-            toUser.addContact(new Contact(inv.from, inv.from, inv.server, inv.to));
+            Contact c = new Contact();
+            c.Id = inv.from;
+            c.ContactHolderId = inv.to;
+            //c.ContactHolder = toUser;
+            c.Name = inv.from;
+            c.Server = inv.server;
+            //toUser.addContact(new Contact(inv.from, inv.from, inv.server, inv.to));
+            //toUser.addContact(c);
+            uService.newContact(toUser.Id, c);
             return Ok();
         }
 

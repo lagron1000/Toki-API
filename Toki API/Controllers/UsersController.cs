@@ -10,9 +10,7 @@ namespace Toki_API.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
-        private UserService uService = new UserService();
-
-        private User signedIn;
+        private IUserService uService = new DbUserService();
 
         // GET: api/<UsersController>
         [HttpGet]
@@ -54,7 +52,7 @@ namespace Toki_API.Controllers
 
         // DELETE api/<UsersController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public void Delete(string id)
         {
         }
     }
